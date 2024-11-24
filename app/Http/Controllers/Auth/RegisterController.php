@@ -7,6 +7,9 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Setting;
+use App\Models\Record;
+use App\Models\Happybirthday;
 
 class RegisterController extends Controller
 {
@@ -63,10 +66,60 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        
+        \Log::debug('Received data:', $data);
+        // dd($data);
+        // dd($data['name']);
+        // $user = User::create([
+        //     'name' => $data['name'],
+        //     'email' => $data['email'],
+        //     'password' => Hash::make($data['password']),
+        // ]);
+        $user = new User();
+        $user->name = $data['name'];
+        $user->email = $data['email'];
+        $user->password = Hash::make($data['password']);
+        $user->save();
+        // dd("ここまでOK");
+
+        // // TODO: Settingテーブルにレコードを追加する
+        // $setting = Setting::create([
+        //     // 'user_id' => $user->id,
+        //     'firsttitle' => '',
+        //     'mothername' => '',
+        //     'babyname' => '',
+        //     'duedate' => '',
+        //     'comment' => '',
+            
+        // ]);
+        //  // TODO: recordテーブルにレコードを追加する
+        //  $record = Record::create([
+        //     'userid' => $user->id,
+        //     'weekday' => '',
+        //     'babyheight' => '',
+        //     'babybodyweight' => '',    
+        //     'motherbodyweight' => '',
+        //     'comment' => '',
+        //     'echoimage' => '',
+        //     'image' => '',
+        // ]);
+        
+        // // TODO: happyテーブルにレコードを追加する
+        // $happybirthday = Happybirthday::create([
+        //     'userid' => $user->id,
+        //     'birthdaytitle' => '',
+        //     'birthday' => '',
+        //     'gender' => '',
+        //     'babyname' => '',
+        //     'birthdaytime' => '',
+        //     'babyheight' => '',
+        //     'baby body weight' => '',
+        //     'image' => '',
+        //     'comment' => '',
+            
+        // ]);
+
+
+        return $user;
     }
 }

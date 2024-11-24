@@ -167,7 +167,7 @@ return [
 
     'attributes' => [
         'firsttitle' => 'タイトル',
-        'firsttitle' => 'ままのニックネーム'
+        'mothername' => 'ママのニックネーム'
     ],
 
 ];

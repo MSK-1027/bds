@@ -13,13 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // S大文字単数形　    get posts小文字　単数形
-use App\Http\Controllers\SettingController;
+use App\Http\Controllers\Admin\SettingController;
 Route::controller(SettingController::class)->prefix('admin')->name('admin.')->middleware('auth')->group(function() {
     Route::get('setting/create', 'add')->name('setting.add');
     Route::get('setting/update', 'edit')->name('setting.edit');
     Route::get('setting/index', 'index')->name('setting.index');
     // 一覧 
-    Route::post('setting/create', 'updet')->name('setting.create');
+    Route::post('setting/create', 'create')->name('setting.create');
+    Route::post('setting/update', 'edit')->name('setting.edit');
     // 保存 
 });
 
@@ -32,25 +33,25 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-use App\Http\Controllers\RecordController;
+use App\Http\Controllers\Admin\RecordController;
 Route::controller(RecordController::class)->prefix('admin')->name('admin.')->middleware('auth')->group(function() {
     Route::get('record/create', 'add')->name('record.add');
-    Route::get('record/update', 'edit')->name('setting.edit');
-    Route::get('record/index', 'index')->name('setting.index');
+    Route::get('record/update', 'edit')->name('record.edit');
+    Route::get('record/index', 'index')->name('record.index');
     // 一覧 
-    Route::post('record/create', 'updet')->name('setting.create');
+    Route::post('record/create', 'create')->name('record.create');
     // 保存 
     //
 
 });
 
-use App\Http\Controllers\HappybirthdayController;
+use App\Http\Controllers\Admin\HappybirthdayController;
 Route::controller(HappybirthdayController::class)->prefix('admin')->name('admin.')->middleware('auth')->group(function() {
     Route::get('happybirthday/create', 'add')->middleware('auth');
-    Route::get('happybirthday/update', 'edit')->name('setting.edit');
-    Route::get('happybirthday/index', 'index')->name('setting.index');
+    Route::get('happybirthday/update', 'edit')->name('happybirthday.edit');
+    Route::get('happybirthday/index', 'index')->name('happybirthday.index');
     // 一覧 
-    Route::post('happybirthday/create', 'updet')->name('setting.create');
+    Route::post('happybirthday/create', 'updet')->name('happybirthday.create');
     // 保存 
     //
 });

@@ -1,37 +1,41 @@
 <?php
-
+// 設定
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Record;
+use App\Models\Setting;
+use App\Models\History;
+use Carbon\Carbon;
 
-class RecordController extends Controller
+class SettingController extends Controller
 {
-    
     public function add()
     {
-        return view('admin.record.create');
+        // dd("ここが動いた");
+    
+    return view('admin.setting.create');
     }
 
     // public function create()
     // {
-    //     return redirect('admin/record/create');
+    //     return redirect('admin/setting/create');
     // }
+
     public function create(Request $request)
     {
         // Validationを行う
-        $this->validate($request, Record::$rules);
+        $this->validate($request, Setting::$rules);
 
-        $record = new Record;
+        $setting = new Setting;
         $form = $request->all();
 
-        // フォームから画像が送信されてきたら、保存して、$record->image_path に画像のパスを保存する
+        // フォームから画像が送信されてきたら、保存して、$setting->image_path に画像のパスを保存する
         if (isset($form['image'])) {
             $path = $request->file('image')->store('public/image');
-            $record->image_path = basename($path);
+            $setting->image_path = basename($path);
         } else {
-            $record->image_path = null;
+            $setting->image_path = null;
         }
 
         // フォームから送信されてきた_tokenを削除する
@@ -40,10 +44,10 @@ class RecordController extends Controller
         unset($form['image']);
 
         // データベースに保存する
-        $record->fill($form);
-        $record->save();
+        $setting->fill($form);
+        $setting->save();
 
-        return redirect('admin/record/create');
+        return redirect('admin/setting/create');
     }
 
     // 以下を追記
@@ -57,61 +61,58 @@ class RecordController extends Controller
             // それ以外はすべてを取得する
             $posts = Setting::all();
         }
-        return view('admin.record.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+        return view('admin.setting.index', ['posts' => $posts, 'cond_title' => $cond_title]);
     }
+
     public function edit(Request $request)
     {
-        // record Modelからデータを取得する
-        $record = Record::find($request->id);
-        if (empty($record)) {
+        // setting Modelからデータを取得する
+        $setting = Setting::find($request->id);
+        if (empty($setting)) {
             abort(404);
         }
-        return view('admin.record.edit', ['record_form' => $record]);
+        return view('admin.setting.edit', ['setting_form' => $setting]);
     }
     public function update(Request $request)
     {
         // Validationをかける
-        $this->validate($request, record::$rules);
-        // record Modelからデータを取得する
-        $record = Record::find($request->id);//record=??
+        $this->validate($request, setting::$rules);
+        // setting Modelからデータを取得する
+        $setting = Setting::find($request->id);//setting=??
         // 送信されてきたフォームデータを格納する
-        $record_form = $request->all();
+        $setting_form = $request->all();
         if ($request->remove == 'true') {
-            $record_form['image_path'] = null;
+            $setting_form['image_path'] = null;
         } elseif ($request->file('image')) {
             $path = $request->file('image')->store('public/image');
-            $record_form['image_path'] = basename($path);
+            $setting_form['image_path'] = basename($path);
         } else {
-            $record_form['image_path'] = $record->image_path;
+            $setting_form['image_path'] = $setting->image_path;
         }
 
-        unset($record_form['image']);
-        unset($record_form['remove']);
-        unset($record_form['_token']);
+        unset($setting_form['image']);
+        unset($setting_form['remove']);
+        unset($setting_form['_token']);
 
         // 該当するデータを上書きして保存する
-        $record->fill($record_form)->save();
+        $setting->fill($setting_form)->save();
         $history = new History();
-        $history->record_id = $record->id;
+        $history->setting_id = $setting->id;
         $history->edited_at = Carbon::now();
         $history->save();
 
-        return redirect('admin/record');
+        return redirect('admin/setting');
     }
     public function delete(Request $request)
     {
         // 該当するNews Modelを取得
-        $record = Record::find($request->id);
+        $setting = Setting::find($request->id);
 
         // 削除する
-        $record->delete();
+        $setting->delete();
 
-        return redirect('admin/record/');
+        return redirect('admin/setting/');
     }
     
     
 }
-
-
-
-    

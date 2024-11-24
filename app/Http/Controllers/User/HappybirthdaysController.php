@@ -5,7 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class HappybirthdaysdController extends Controller
+class HappybirthdayController extends Controller
 {
     public function add()
     {

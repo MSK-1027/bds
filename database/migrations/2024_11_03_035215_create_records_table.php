@@ -37,3 +37,15 @@ return new class extends Migration
         Schema::dropIfExists('records');
     }
 };
+//             $table->id();
+//             $table->string('user_id');プロテクトかける！！！
+//             $table->string('weekday');//週数プロテクト！！
+//             $table->string('babyheight');//身長
+//             $table->string('babybodyweight');//体重
+//             $table->string('motherbodyweight')->nullable();//まま体重
+//             $table->string('comment')->nullable();
+//             $table->string('image_path')->nullable();お腹の写真・エコー写真
+//             $table->timestamps();
+        
+//     }
+// };

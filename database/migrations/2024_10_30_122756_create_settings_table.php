@@ -15,15 +15,13 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string('userid');
+            $table->string('user_id');
             $table->string('firsttitle');//題名
             $table->string('mothername');//母ニックネーム
             $table->string('babyname');//子ニックネーム
             $table->string('duedate');//出産予定日
-            $table->string('backcolor');//背景の色
-            $table->string('fontcolor');//文字の色
             $table->string('comment');
-            $table->string('image');
+            $table->string('image_path')->nullable();
             $table->timestamps();
         });
     }
@@ -38,3 +36,12 @@ return new class extends Migration
         Schema::dropIfExists('settings');
     }
 };
+            // $table->id();
+            // $table->string('user_id');プロテクト1こしか登録できないようにしたい！！！
+            // $table->string('firsttitle')->nullable();//題名
+            // $table->string('mothername');//母ニックネーム
+            // $table->string('babyname');//子ニックネーム
+            // $table->string('duedate');//出産予定日
+            // $table->string('comment')->nullable();
+            // $table->string('image_path')->nullable();
+            // $table->timestamps();

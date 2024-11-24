@@ -39,3 +39,17 @@ return new class extends Migration
         Schema::dropIfExists('happybirthdays');
     }
 };
+//             $table->id();
+//             $table->string('user_id');プロテクト
+//             $table->string('birthday');//誕生日
+//             $table->string('birthdaytime');//時間
+//             $table->string('babyname')->nullable();//命名
+//             $table->string('gender');//性別
+//             $table->string('babyheight');//身長
+//             $table->string('babybodyweight');//体重
+//             $table->string('comment')->nullable();
+//             $table->string('image_path')->nullable();
+//             $table->timestamps();
+        
+//     }
+// };
