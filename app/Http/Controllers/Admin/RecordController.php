@@ -57,7 +57,7 @@ class RecordController extends Controller
             // それ以外はすべてを取得する
             $posts = Setting::all();
         }
-        return view('admin.record.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+        return view('admin.record.index', ['posts' => $posts, 'cond_title' => $cond_title]);//titl入力名！！
     }
     public function edit(Request $request)
     {

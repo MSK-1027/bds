@@ -113,6 +113,52 @@ class SettingController extends Controller
 
         return redirect('admin/setting/');
     }
-    
-    
+    public function save(Request $request)
+    {
+        if(!empty($request->id)){
+            $setting = Setting::find($request->id);
+            $setting_form = $request->all();
+        if ($request->remove == 'true') {
+            $setting_form['image_path'] = null;
+        } elseif ($request->file('image')) {
+            $path = $request->file('image')->store('public/image');
+            $setting_form['image_path'] = basename($path);
+        } else {
+            $setting_form['image_path'] = $setting->image_path;
+        }
+
+        unset($setting_form['image']);
+        unset($setting_form['remove']);
+        unset($setting_form['_token']);
+
+        // 該当するデータを上書きして保存する
+        $setting->fill($setting_form)->save();
+        $msg='更新しました';
+    } else {
+        $this->validate($request, Setting::$rules);
+
+        $setting0 = new Setting;
+        $form = $request->all();
+
+        // フォームから画像が送信されてきたら、保存して、$setting->image_path に画像のパスを保存する
+        if (isset($form['image'])) {
+            $path = $request->file('image')->store('public/image');
+            $setting0->image_path = basename($path);
+        } else {
+            $setting0->image_path = null;
+        }
+
+        // フォームから送信されてきた_tokenを削除する
+        unset($form['_token']);
+        // フォームから送信されてきたimageを削除する
+        unset($form['image']);
+
+        // データベースに保存する
+        $setting0->fill($form);
+        $setting0->save();
+        $msg='登録しました';
+        $setting = $setting0;
+    }
+    return view('admin.setting.edit', ['setting_form' => $setting]);
+}
 }
