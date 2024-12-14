@@ -15,12 +15,12 @@ class Setting extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'user_id' => 'required',
-        'firsttitle' => 'required',
-        'mothername' => 'required',
-        'babyname' => 'required',
-        'duedate' => 'required',
-        'comment' => 'required',
+        'user_id' ,
+        'firsttitle' , 
+        'mothername' ,
+        'babyname' ,
+        'duedate'  ,
+        'comment'  ,
     ];
 
     public static $rules = array(

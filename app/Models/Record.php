@@ -15,14 +15,14 @@ class Record extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'userid' => 'required',
-        'weekday' => 'required',
-        'babyheight' => 'required',
-        'babybodyweight' => 'required',
-        'motherbodyweight' => 'required',
-        'comment' => 'required',
-        'echoimage' => 'required',
-        'image' => 'required',
+        'userid' ,
+        'weekday' ,
+        'babyheight' ,
+        'babybodyweight' ,
+        'motherbodyweight' ,
+        'comment' ,
+        'echoimage' ,
+        'image' ,
         
     ];
 

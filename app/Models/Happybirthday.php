@@ -15,16 +15,16 @@ class Happybirthday extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'userid' => 'required',
-        'birthdaytitle' => 'required',
-        'birthday' => 'required',
-        'gender' => 'required',
-        'babyname' => 'required',
-        'birthdaytime' => 'required',
-        'babyheight' => 'required',
-        'baby body weight' => 'required',
-        'image' => 'required',
-        'comment' => 'required',
+        'userid' ,
+        'birthdaytitle' ,
+        'birthday' ,
+        'gender' ,
+        'babyname' ,
+        'birthdaytime' ,
+        'babyheight' ,
+        'baby body weight' ,
+        'image' ,
+        'comment' ,
             
     ];
 
