@@ -8,7 +8,7 @@ use App\Models\Record;
 
 class RecordController extends Controller
 {
-    
+
     public function add()
     {
         return view('admin.record.create');
@@ -46,7 +46,7 @@ class RecordController extends Controller
         return redirect('admin/record/create');
     }
 
-    // 以下を追記
+    // 記録登録するフォーム
     public function index(Request $request)
     {
         $cond_title = $request->cond_title;
@@ -108,10 +108,10 @@ class RecordController extends Controller
 
         return redirect('admin/record/');
     }
-    
-    
+
+
 }
 
 
 
-    
+

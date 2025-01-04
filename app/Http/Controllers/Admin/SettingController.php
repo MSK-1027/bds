@@ -13,7 +13,7 @@ class SettingController extends Controller
     public function add()
     {
         // dd("ここが動いた");
-    
+
     return view('admin.setting.create');
     }
 
@@ -50,26 +50,26 @@ class SettingController extends Controller
         return redirect('admin/setting/create');
     }
 
-    // 以下を追記
-    public function index(Request $request)
-    {
-        $cond_title = $request->cond_title;
-        if ($cond_title != '') {
-            // 検索されたら検索結果を取得する
-            $posts = Setting::where('title', $cond_title)->get();
-        } else {
-            // それ以外はすべてを取得する
-            $posts = Setting::all();
-        }
-        return view('admin.setting.index', ['posts' => $posts, 'cond_title' => $cond_title]);
-    }
+    //
+    // public function index(Request $request)
+    // {
+    //     $cond_title = $request->cond_title;
+    //     if ($cond_title != '') {
+    //         // 検索されたら検索結果を取得する
+    //         $posts = Setting::where('title', $cond_title)->get();
+    //     } else {
+    //         // それ以外はすべてを取得する
+    //         $posts = Setting::all();
+    //     }
+    //     return view('admin.setting.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+    // }
 
     public function edit(Request $request)
     {
         // setting Modelからデータを取得する
         $setting = Setting::find($request->id);
         if (empty($setting)) {
-            abort(404);
+            // abort(404);
         }
         return view('admin.setting.edit', ['setting_form' => $setting]);
     }
