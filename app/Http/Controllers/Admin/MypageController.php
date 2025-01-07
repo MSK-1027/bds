@@ -11,6 +11,6 @@ class MypageController extends Controller
 
     public function index()
     {
-        return view('admin.mypage.sample');
+        return view('admin.mypage.index');
     }
 }

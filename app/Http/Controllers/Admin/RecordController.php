@@ -76,6 +76,16 @@ class RecordController extends Controller
         $record = Record::find($request->id);//record=??
         // 送信されてきたフォームデータを格納する
         $record_form = $request->all();
+       //エコ
+        if ($request->remove == 'true') {
+            $record_form['echoimage_path'] = null;
+        } elseif ($request->file('echoimage')) {
+            $path = $request->file('echoimage')->store('public/image');
+            $record_form['echoimage_path'] = basename($path);
+        } else {
+            $record_form['echoimage_path'] = $record->image_path;
+        }
+        //お腹の写真
         if ($request->remove == 'true') {
             $record_form['image_path'] = null;
         } elseif ($request->file('image')) {

@@ -1,13 +1,13 @@
 
 <!-- 記録 -->
-@extends('layouts.admin') 
+@extends('layouts.admin')
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>記録</h2>
             </div>
-            
+
 <form action="{{ route('admin.record.create') }}" method="post" enctype="multipart/form-data">
 
                     @if (count($errors) > 0)
@@ -18,51 +18,51 @@
                         </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2">週</label>
+                        <label class="col-md-2">週数</label>
                         <div class="col-2">
-                            <input type="text" class="form-control" name="week" value="{{ old('title') }}">
+                            <input type="text" class="form-control" name="weekday" value="{{ old('weekday') }}">
                         <!-- 一行 nameテーブル名に直す-->
                         </div>
                     </div>
-                    <div class="form-group row">
+                    {{-- <div class="form-group row">
                         <label class="col-md-2">日</label>
                         <div class="col-2">
-                            <input type="text" class="form-control" name="day" value="{{ old('title') }}">
+                            <input type="text" class="form-control" name="weekday" value="{{ old('title') }}">
                         <!-- 一行 nameテーブル名に直す-->
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="form-group row">
                         <label class="col-md-2">身長</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="babyheight" value="{{ old('title') }}">
+                            <input type="text" class="form-control" name="babyheight" value="{{ old('babyheight') }}">
                         <!-- 一行 -->
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">体重</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="babybodyweight" value="{{ old('title') }}">
+                            <input type="text" class="form-control" name="babybodyweight" value="{{ old('babybodyweight') }}">
                         <!-- 一行 -->
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">ママの体重</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="motherbodyweight" value="{{ old('title') }}">
+                            <input type="text" class="form-control" name="motherbodyweight" value="{{ old('motherbodyweight') }}">
                         <!-- 一行 -->
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">コメント</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="comment" rows="20">{{ old('body') }}</textarea>
+                            <textarea class="form-control" name="comment" rows="20">{{ old('comment') }}</textarea>
                        <!-- 複数行 -->
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">エコー画像</label>
                         <div class="col-md-10">
-                            <input type="file" class="form-control-file" name="image">
+                            <input type="file" class="form-control-file" name="echoimage">
                         </div>
                     </div>
                     <div class="form-group row">
