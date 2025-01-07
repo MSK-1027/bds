@@ -31,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/admin/mypage';
 
     /**
      * Create a new controller instance.
@@ -66,7 +66,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        
+
         \Log::debug('Received data:', $data);
         // dd($data);
         // dd($data['name']);
@@ -90,20 +90,20 @@ class RegisterController extends Controller
         //     'babyname' => '',
         //     'duedate' => '',
         //     'comment' => '',
-            
+
         // ]);
         //  // TODO: recordテーブルにレコードを追加する
         //  $record = Record::create([
         //     'userid' => $user->id,
         //     'weekday' => '',
         //     'babyheight' => '',
-        //     'babybodyweight' => '',    
+        //     'babybodyweight' => '',
         //     'motherbodyweight' => '',
         //     'comment' => '',
         //     'echoimage' => '',
         //     'image' => '',
         // ]);
-        
+
         // // TODO: happyテーブルにレコードを追加する
         // $happybirthday = Happybirthday::create([
         //     'userid' => $user->id,
@@ -116,7 +116,7 @@ class RegisterController extends Controller
         //     'baby body weight' => '',
         //     'image' => '',
         //     'comment' => '',
-            
+
         // ]);
 
 

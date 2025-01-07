@@ -29,7 +29,7 @@ Route::controller(SettingController::class)->prefix('admin')->name('admin.')->mi
 });
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
