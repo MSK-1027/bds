@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
             $table->string('user_id');
-            $table->string('firsttitle');//題名
+            $table->string('firsttitle')->nullable();//題名
             $table->string('mothername');//母ニックネーム
             $table->string('babyname');//子ニックネーム
             $table->string('duedate');//出産予定日
-            $table->string('comment');
+            $table->string('comment')->nullable();
             $table->string('image_path')->nullable();
             $table->timestamps();
         });

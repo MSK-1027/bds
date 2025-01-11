@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Record;
+use Illuminate\Support\Facades\Auth;
 
 class RecordController extends Controller
 {
@@ -26,24 +27,34 @@ class RecordController extends Controller
         $record = new Record;
         $form = $request->all();
 
-        // フォームから画像が送信されてきたら、保存して、$record->image_path に画像のパスを保存する
+        // フォームから画像が送信されてきたら、保存して、$record->echoimage に画像のパスを保存する
+        if (isset($form['echoimage'])) {
+            $path = $request->file('echoimage')->store('public/image');
+            $record->echoimage = basename($path);
+        } else {
+            $record->echoimage = null;
+        }
+
+        // フォームから画像が送信されてきたら、保存して、$record->echoimage に画像のパスを保存する
         if (isset($form['image'])) {
             $path = $request->file('image')->store('public/image');
-            $record->image_path = basename($path);
+            $record->image = basename($path);
         } else {
-            $record->image_path = null;
+            $record->image = null;
         }
 
         // フォームから送信されてきた_tokenを削除する
         unset($form['_token']);
-        // フォームから送信されてきたimageを削除する
-        unset($form['image']);
+
+
 
         // データベースに保存する
+
+        $record->user_id = Auth::id();
         $record->fill($form);
         $record->save();
 
-        return redirect('admin/record/create');
+        return redirect('admin/mypage');
     }
 
     // 記録登録するフォーム
@@ -78,24 +89,24 @@ class RecordController extends Controller
         $record_form = $request->all();
        //エコ
         if ($request->remove == 'true') {
-            $record_form['echoimage_path'] = null;
+            $record_form['echoimage'] = null;
         } elseif ($request->file('echoimage')) {
             $path = $request->file('echoimage')->store('public/image');
-            $record_form['echoimage_path'] = basename($path);
+            $record_form['echoimage'] = basename($path);
         } else {
-            $record_form['echoimage_path'] = $record->image_path;
+            $record_form['echoimage'] = $record->echoimage;
         }
         //お腹の写真
         if ($request->remove == 'true') {
-            $record_form['image_path'] = null;
+            $record_form['image'] = null;
         } elseif ($request->file('image')) {
             $path = $request->file('image')->store('public/image');
-            $record_form['image_path'] = basename($path);
+            $record_form['image'] = basename($path);
         } else {
-            $record_form['image_path'] = $record->image_path;
+            $record_form['image'] = $record->image;
         }
 
-        unset($record_form['image']);
+
         unset($record_form['remove']);
         unset($record_form['_token']);
 

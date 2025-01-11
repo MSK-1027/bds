@@ -15,16 +15,15 @@ return new class extends Migration
     {
         Schema::create('happybirthdays', function (Blueprint $table) {
             $table->id();
-            $table->string('userid');
-            $table->string('birthdaytitle');//誕生題名
+            $table->string('user_id');
             $table->string('birthday');//誕生日
             $table->string('gender');//性別
-            $table->string('babyname');//命名
+            $table->string('babyname')->nullable();//命名
             $table->string('birthdaytime');//誕生時間
             $table->string('babyheight');//身長
             $table->string('baby body weight');//体重
-            $table->string('image');//
-            $table->string('comment');
+            $table->string('image')->nullable();//
+            $table->string('comment')->nullable();
             $table->timestamps();
         });
     }
@@ -50,6 +49,6 @@ return new class extends Migration
 //             $table->string('comment')->nullable();
 //             $table->string('image_path')->nullable();
 //             $table->timestamps();
-        
+
 //     }
 // };
