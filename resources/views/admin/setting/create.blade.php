@@ -6,7 +6,7 @@
             <div class="col-md-8 mx-auto">
                 <h2>設定</h2>
             </div>
-            
+
                 <form action="{{ route('admin.setting.create') }}" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
                     @if (count($errors) > 0)
@@ -19,31 +19,31 @@
                     <div class="form-group row">
                         <label class="col-md-2">タイトル</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="firsttitle" value="{{ old('title') }}">
+                            <input type="text" class="form-control" name="firsttitle" value="{{ old('firsttitle') }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">ママのニックネーム</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="mothername" value="{{ old('title') }}">
+                            <input type="text" class="form-control" name="mothername" value="{{ old('mothername') }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">赤ちゃんのニックネーム</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="babyname" value="{{ old('title') }}">
+                            <input type="text" class="form-control" name="babyname" value="{{ old('babyname') }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">出産予定日</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="duedate" value="{{ old('title') }}">
+                            <input type="text" class="form-control" name="duedate" value="{{ old('duedate') }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">コメント</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="comment" rows="20">{{ old('body') }}</textarea>
+                            <textarea class="form-control" name="comment" rows="20">{{comment old('') }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">

@@ -7,7 +7,7 @@
             <div class="col-md-8 mx-auto">
                 <h2>Happy Birthday</h2>
             </div>
-            
+
                 <form action="{{ route('admin.happybirthday.create') }}" method="post" enctype="multipart/form-data">
 
                     @if (count($errors) > 0)
@@ -20,43 +20,43 @@
                     <div class="form-group row">
                         <label class="col-md-2">赤ちゃんの名前</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="babyname" value="{{ old('title') }}">
+                            <input type="text" class="form-control" name="babyname" value="{{ old('babyname') }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">誕生日</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="birthday" value="{{ old('title') }}">
+                            <input type="text" class="form-control" name="birthday" value="{{ old('birthday') }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">出産時間</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="birthdaytime" value="{{ old('title') }}">
+                            <input type="text" class="form-control" name="birthdaytime" value="{{ old('birthdaytime') }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">性別</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="gender" value="{{ old('title') }}">
+                            <input type="text" class="form-control" name="gender" value="{{ old('gender') }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">身長</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="babyheight" value="{{ old('title') }}">
+                            <input type="text" class="form-control" name="babyheight" value="{{ old('babyheight') }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">体重</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="babybodyweight" value="{{ old('title') }}">
+                            <input type="text" class="form-control" name="babybodyweight" value="{{ old('babybodyweight') }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">コメント</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="comment" rows="20">{{ old('body') }}</textarea>
+                            <textarea class="form-control" name="comment" rows="20">{{ old('comment') }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">

@@ -17,43 +17,43 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="babyname">赤ちゃんの名前</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="babyname" value="{{ $happybirthday_form->title }}">
+                            <input type="text" class="form-control" name="babyname" value="{{ $happybirthday_form->babyname }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="birthday">誕生日</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="birthday" value="{{ $happybirthday_form->title }}">
+                            <input type="text" class="form-control" name="birthday" value="{{ $happybirthday_form->birthday }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="birthdaytime">誕生時間</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="birthdaytime" value="{{ $happybirthday_form->title }}">
+                            <input type="text" class="form-control" name="birthdaytime" value="{{ $happybirthday_form->birthdaytime }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="gender">性別</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="gender" value="{{ $happybirthday_form->title }}">
+                            <input type="text" class="form-control" name="gender" value="{{ $happybirthday_form->gender }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="babyheight">身長</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="babyheight" value="{{ $happybirthday_form->title }}">
+                            <input type="text" class="form-control" name="babyheight" value="{{ $happybirthday_form->babyheight }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="babybodyweight">体重</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="babybodyweight" value="{{ $happybirthday_form->title }}">
+                            <input type="text" class="form-control" name="babybodyweight" value="{{ $happybirthday_form->babybodyweight }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="comment">コメント</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="comment" rows="20">{{ $happybirthday_form->body }}</textarea>
+                            <textarea class="form-control" name="comment" rows="20">{{ $happybirthday_form->comment }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">

@@ -31,31 +31,31 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="title">タイトル</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="firsttitle" value="{{ $setting_form->title }}">
+                            <input type="text" class="form-control" name="firsttitle" value="{{ $setting_form->firsttitle }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="mothername">ママのニックネーム</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="mothername" value="{{ $setting_form->title }}">
+                            <input type="text" class="form-control" name="mothername" value="{{ $setting_form->mothername }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="babyname">赤ちゃんのニックネーム</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="babyname" value="{{ $setting_form->title }}">
+                            <input type="text" class="form-control" name="babyname" value="{{ $setting_form->babyname }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="duedate">出産予定日</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="duedate" value="{{ $setting_form->title }}">
+                            <input type="text" class="form-control" name="duedate" value="{{ $setting_form->duedate }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="comment">コメント</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="comment" rows="20">{{ $setting_form->body }}</textarea>
+                            <textarea class="form-control" name="comment" rows="20">{{ $setting_form->comment }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">

@@ -31,49 +31,49 @@
                     <!-- <div class="form-group row">
                         <label class="col-md-2" for="title">タイトル</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="firsttitle" value="{{ $record_form->title }}">
+                            {{-- <input type="text" class="form-control" name="firsttitle" value="{{ $record_form->title }}"> --}}
                         </div>
                     </div> -->
                     <div class="form-group row">
-                        <label class="col-md-2" for="week">週</label>
+                        <label class="col-md-2" for="week">週数</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="week" value="{{ $record_form->title }}">
+                            <input type="text" class="form-control" name="weekday" value="{{ $record_form->weekday }}">
                         </div>
                     </div>
-                    <div class="form-group row">
+                    {{-- <div class="form-group row">
                         <label class="col-md-2" for="day">日</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="day" value="{{ $record_form->title }}">
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="form-group row">
                         <label class="col-md-2" for="babyheight">身長</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="babyheight" value="{{ $record_form->title }}">
+                            <input type="text" class="form-control" name="babyheight" value="{{ $record_form->babyheight }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="babybodyweight">体重</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="babybodyweight" value="{{ $record_form->title }}">
+                            <input type="text" class="form-control" name="babybodyweight" value="{{ $record_form->babybodyweight }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="motherbodyweight">ママの身長</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="motherbodyweight" value="{{ $record_form->title }}">
+                            <input type="text" class="form-control" name="motherbodyweight" value="{{ $record_form->motherbodyweight }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="comment">コメント</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="comment" rows="20">{{ $record_form->body }}</textarea>
+                            <textarea class="form-control" name="comment" rows="20">{{ $record_form->comment }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">エコー画像</label>
                         <div class="col-md-10">
-                            <input type="file" class="form-control-file" name="image">
+                            <input type="file" class="form-control-file" name="echoimage">
                         </div>
                     </div>
                     <div class="form-group row">
