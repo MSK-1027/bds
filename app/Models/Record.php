@@ -15,7 +15,7 @@ class Record extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'userid' ,
+        'user_id' ,
         'weekday' ,
         'babyheight' ,
         'babybodyweight' ,
@@ -23,16 +23,16 @@ class Record extends Model
         'comment' ,
         'echoimage' ,
         'image' ,
-        
+
     ];
 
     public static $rules = array(
-        
+
         'weekday' => 'required',
         'babyheight' => 'required',
         'babybodyweight' => 'required',
-        
-        
+
+
     );
     public function histories()
     {

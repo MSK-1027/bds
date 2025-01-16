@@ -42,11 +42,13 @@ Route::controller(RecordController::class)->prefix('admin')->name('admin.')->mid
     //記録の登録の表示
     Route::get('record/create', 'add')->name('record.add');
     //記録の表示
-    Route::get('record/update', 'edit')->name('record.edit');
+    Route::get('record/update/{id}', 'edit')->name('record.edit');
     //記録一覧の表示
     Route::get('record/index', 'index')->name('record.index');
     //記録の保存
     Route::post('record/create', 'create')->name('record.create');
+    //記録の表示
+    Route::put('record/update/{id}', 'update')->name('record.update');
 
     //
 

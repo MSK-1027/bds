@@ -15,7 +15,7 @@ class Happybirthday extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'userid' ,
+        'user_id' ,
         'birthdaytitle' ,
         'birthday' ,
         'gender' ,
@@ -25,7 +25,7 @@ class Happybirthday extends Model
         'baby body weight' ,
         'image' ,
         'comment' ,
-            
+
     ];
 
     public static $rules = array(
@@ -36,5 +36,5 @@ class Happybirthday extends Model
     'babybodyweight' => 'required',
 );
 
-    
+
 }

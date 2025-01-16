@@ -70,16 +70,16 @@ class RecordController extends Controller
         }
         return view('admin.record.index', ['posts' => $posts, 'cond_title' => $cond_title]);//titl入力名！！
     }
-    public function edit(Request $request)
+    public function edit(Request $request,$id)
     {
         // record Modelからデータを取得する
-        $record = Record::find($request->id);
+        $record = Record::find($id);
         if (empty($record)) {
             abort(404);
         }
         return view('admin.record.edit', ['record_form' => $record]);
     }
-    public function update(Request $request)
+    public function update(Request $request,$id)
     {
         // Validationをかける
         $this->validate($request, record::$rules);
@@ -89,6 +89,7 @@ class RecordController extends Controller
         $record_form = $request->all();
        //エコ
         if ($request->remove == 'true') {
+
             $record_form['echoimage'] = null;
         } elseif ($request->file('echoimage')) {
             $path = $request->file('echoimage')->store('public/image');
@@ -112,12 +113,8 @@ class RecordController extends Controller
 
         // 該当するデータを上書きして保存する
         $record->fill($record_form)->save();
-        $history = new History();
-        $history->record_id = $record->id;
-        $history->edited_at = Carbon::now();
-        $history->save();
 
-        return redirect('admin/record');
+        return redirect('admin/mypage');
     }
     public function delete(Request $request)
     {

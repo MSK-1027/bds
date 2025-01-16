@@ -20,7 +20,9 @@
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>設定編集</h2>
-                <form action="{{ route('admin.record.update') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('admin.record.update',$record_form->id) }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                     @method('PUT') <!-- PUTメソッドを指定 -->
                     @if (count($errors) > 0)
                         <ul>
                             @foreach($errors->all() as $e)
@@ -98,19 +100,7 @@
                         </div>
                     </div>
                 </form>
-                {{-- 以下を追記 --}}
-                <div class="row mt-5">
-                    <div class="col-md-4 mx-auto">
-                        <h2>編集履歴</h2>
-                        <ul class="list-group">
-                            @if ($record_form->histories != NULL)
-                                @foreach ($record_form->histories as $history)
-                                    <li class="list-group-item">{{ $history->edited_at }}</li>
-                                @endforeach
-                            @endif
-                        </ul>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
