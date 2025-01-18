@@ -2,6 +2,17 @@
 <!-- 記録 -->
 @extends('layouts.admin')
 @section('content')
+<style>
+    .flex {
+        display: flex;
+        align-items: center;
+    }
+    .flex span {
+        margin-left: 5px;
+        font-size: 14px;
+        color: #555; /* ラベルの色を調整 */
+    }
+</style>
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
@@ -19,8 +30,8 @@
                     @endif
                     <div class="form-group row">
                         <label class="col-md-2">週数</label>
-                        <div class="col-2">
-                            <input type="text" class="form-control" name="weekday" value="{{ old('weekday') }}">
+                        <div class="col-2 flex">
+                            <input type="text" class="form-control" name="weekday" value="{{ old('weekday') }}"><span>週</span>
                         <!-- 一行 nameテーブル名に直す-->
                         </div>
                     </div>
@@ -33,22 +44,22 @@
                     </div> --}}
                     <div class="form-group row">
                         <label class="col-md-2">身長</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" name="babyheight" value="{{ old('babyheight') }}">
+                        <div class="col-md-2 flex">
+                            <input type="text" class="form-control" name="babyheight" value="{{ old('babyheight') }}"><span>mm</span>
                         <!-- 一行 -->
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">体重</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" name="babybodyweight" value="{{ old('babybodyweight') }}">
+                        <div class="col-md-2 flex">
+                            <input type="text" class="form-control" name="babybodyweight" value="{{ old('babybodyweight') }}"><span>g</span>
                         <!-- 一行 -->
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">ママの体重</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" name="motherbodyweight" value="{{ old('motherbodyweight') }}">
+                        <div class="col-md-2 flex">
+                            <input type="text" class="form-control" name="motherbodyweight" value="{{ old('motherbodyweight') }}"><span>kg</span>
                         <!-- 一行 -->
                         </div>
                     </div>

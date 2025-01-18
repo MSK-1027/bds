@@ -1,21 +1,18 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>BDS</title>
-    </head>
-    <body>
-        <h1>記録</h1>
-    </body>
-</html>
-
 @extends('layouts.admin')
 @section('title', '記録の編集')
 
 @section('content')
+<style>
+    .flex {
+        display: flex;
+        align-items: center;
+    }
+    .flex span {
+        margin-left: 5px;
+        font-size: 14px;
+        color: #555; /* ラベルの色を調整 */
+    }
+</style>
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
@@ -36,10 +33,11 @@
                             {{-- <input type="text" class="form-control" name="firsttitle" value="{{ $record_form->title }}"> --}}
                         </div>
                     </div> -->
+
                     <div class="form-group row">
                         <label class="col-md-2" for="week">週数</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" name="weekday" value="{{ $record_form->weekday }}">
+                        <div class="col-md-2 flex">
+                            <input type="text" class="form-control" name="weekday" value="{{ $record_form->weekday }}"><span>週</span>
                         </div>
                     </div>
                     {{-- <div class="form-group row">
@@ -50,25 +48,25 @@
                     </div> --}}
                     <div class="form-group row">
                         <label class="col-md-2" for="babyheight">身長</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" name="babyheight" value="{{ $record_form->babyheight }}">
+                        <div class="col-md-2 flex">
+                            <input type="text" class="form-control" name="babyheight" value="{{ $record_form->babyheight }}">mm
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="babybodyweight">体重</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" name="babybodyweight" value="{{ $record_form->babybodyweight }}">
+                        <div class="col-md-2 flex">
+                            <input type="text" class="form-control" name="babybodyweight" value="{{ $record_form->babybodyweight }}">g
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2" for="motherbodyweight">ママの身長</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" name="motherbodyweight" value="{{ $record_form->motherbodyweight }}">
+                        <label class="col-md-2" for="motherbodyweight">ママの体重</label>
+                        <div class="col-md-2 flex">
+                            <input type="text" class="form-control" name="motherbodyweight" value="{{ $record_form->motherbodyweight }}">kg
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="comment">コメント</label>
-                        <div class="col-md-10">
+                        <div class="col-md-10 flex">
                             <textarea class="form-control" name="comment" rows="20">{{ $record_form->comment }}</textarea>
                         </div>
                     </div>

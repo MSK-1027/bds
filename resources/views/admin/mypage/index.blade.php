@@ -16,12 +16,12 @@
                 <thead class="thead-dark">
                     <tr>
                         <th>ID</th>
-                        <th>Echo Image</th>
-                        <th>Weekday</th>
-                        <th>Baby Height</th>
-                        <th>Baby Body Weight</th>
-                        <th>Mother Body Weight</th>
-                        <th>Image</th>
+                        <th>週数</th>
+                        <th>身長(mm)</th>
+                        <th>体重(g)</th>
+                        <th>ママの体重(kg)</th>
+                        <th>エコー写真</th>
+                        <th>ママの写真</th>
                         <th>編集</th>
                     </tr>
                 </thead>
@@ -29,19 +29,19 @@
                     @foreach ($records as $record)
                         <tr>
                             <td>{{ $record->id }}</td>
-                            <td>
-                                @if ($record->echoimage)
-                                    <img src="{{ asset('public/image/' . $record->echoimage) }}" alt="Echo Image"
-                                        width="50" class="img-thumbnail">
-                                @endif
-                            </td>
                             <td>{{ $record->weekday }}</td>
                             <td>{{ $record->babyheight }}</td>
                             <td>{{ $record->babybodyweight }}</td>
                             <td>{{ $record->motherbodyweight }}</td>
                             <td>
+                                @if ($record->echoimage)
+                                    <img src="{{ asset('storage/image/' . $record->echoimage) }}" alt="Echo Image"
+                                        width="50" class="img-thumbnail">
+                                @endif
+                            </td>
+                            <td>
                                 @if ($record->image)
-                                    <img src="{{ asset('public/image/' . $record->image) }}" alt="Image" width="50"
+                                    <img src="{{ asset('storage/image/' . $record->image) }}" alt="Image" width="50"
                                         class="img-thumbnail">
                                 @endif
                             </td>
